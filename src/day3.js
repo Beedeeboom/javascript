@@ -118,3 +118,48 @@ Human.prototype = Object.create(Animal.prototype)
 
 let me = new Human("Matt")
 console.log(me.walk())
+
+// In Javascript there is not actually a concept of a class as referred to in other languages
+// As far as what happens when the interpretor is concerned is called prototypes
+
+class Triangle { // creating an instance of a class we use the same method as creating protoypes
+
+}
+
+let tri = new Triangle ()
+console.log(tri.__proto__)
+
+// key difference between a function and class
+// Functions are hoisted
+// Classes are not hoisted
+
+// A Javascript function is the same a def in Ruby (method)
+// When we are writing classes we can think of them as being equivilent concepts as Ruby classes
+
+class Rectangle {
+    // def initialize(width, height) => in Ruby
+    // we don't need the function key word when declaring a function within a class
+    // in Ruby we need to declare def within a class
+    // if you want to call a function you always need the brackets even if they are empty
+    // the value of rect.area is a function
+    // the value of rect.area() is the function executing
+    constructor(width, height) { // Javascript version of initialize
+    this.width = width
+    this.height = height
+    }
+    area() {
+        return this.height * this.width;
+      }
+}
+
+
+class Square extends Rectangle { //here Square inherites from Rectangle
+    constructor(width) {
+        super(width, width) //here we are passing the paramenters from Rectangle using the key word "super"
+    }
+}
+
+let rect = new Rectangle(10, 20)
+let sq = new Square(15)
+console.log(rect.area())
+console.log(sq.area())
