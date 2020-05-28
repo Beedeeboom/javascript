@@ -1,7 +1,7 @@
-#Learning Javascript
+# Learning Javascript
 By Stephanie Duffieux | May 2020
 
-###Using Javascript with HTML
+### Using Javascript with HTML
 
 To write Javascript code with HTML we need to wrap our code within script tags. These can be placed in the head, body or after the body section of the HTML document.
 
