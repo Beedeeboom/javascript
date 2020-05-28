@@ -23,6 +23,7 @@ We can output Javascript code within HTML code with document.write(), instead of
     </body>
     </html>
 ```
+<<<<<<< HEAD:Readme.md
 
 ## Functions
 
@@ -102,3 +103,5 @@ We can access data stored within variable objects like so:
 
 ```
 
+=======
+>>>>>>> cfa9959638fbfb45e17f63f80e88491475aab7ce:README.md
