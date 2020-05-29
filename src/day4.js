@@ -136,3 +136,18 @@ let sq = new Square(10, 10)
 
 console.log(sq.talk())
 console.log(sq.area())
+
+//JSON
+const person = {
+    name: "Jack",
+    age: 30,
+    hobbies: ["surfing", "skydiving"]
+}
+
+console.log(JSON.stringify(person))
+// prints JSON => {"name":"Jack","age":"30","hobbies":"["surfing", "skydiving"]"}
+
+//Or we could declare a JSON this way
+const str = {"name":"Jack","age":"30","hobbies":"["surfing", "skydiving"]"}
+const person = JSON.parse(str)
+console.log(person)
