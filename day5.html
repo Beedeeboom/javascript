@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <button id="button">Click Me!</button>
+    <script>
+      function wait(ms) {
+        let start = Date.now(),
+          now = start;
+        while (now - start < ms) {
+          now = Date.now();
+        }
+      }
+
+      document.getElementById("button").addEventListener("click", () => { // () => is declaring a callback function
+        wait(5000); //waits 5 seconds
+        alert("Ran!"); //then pop up => alert "Ran!"
+      });
+    </script>
+  </body>
+</html>
