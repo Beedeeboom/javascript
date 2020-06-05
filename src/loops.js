@@ -19,3 +19,25 @@ for (let counter = 3; counter >= 0; counter--){
     console.log(counter);
   }
 
+//Looping through Arrays
+const vacationSpots = ['Bali', 'Paris', 'Tulum'];
+for (let i = 0; i < vacationSpots.length; i++){
+  console.log(`I would love to visit ${vacationSpots[i]}`)
+}
+
+//prints I would love to visit Bali - I would love to visit Paris - I would love to visit Tulum
+
+//Nested loops
+//the below contains 3 arrays
+//the duplicates from array 1 and 2 are pushed into array 3
+let bobsFollowers = ['Joe', 'Marta', 'Sam', 'Erin'];
+let tinasFollowers = ['Sam', 'Marta', 'Elle'];
+let mutualFollowers = [];
+
+for (let i = 0; i < bobsFollowers.length; i++) {
+  for (let j = 0; j < tinasFollowers.length; j++) {
+    if (bobsFollowers[i] === tinasFollowers[j]) {
+      mutualFollowers.push(bobsFollowers[i]);
+    }
+  }
+};
