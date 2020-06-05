@@ -95,3 +95,10 @@ console.log(nestedArr[1][0]); // Output: 2
 const numberClusters = ([[1, 2], [3, 4], [5, 6]])
 
 const target = numberClusters[2][1]
+
+//Looping through Arrays
+const vacationSpots = ['Bali', 'Paris', 'Tulum'];
+for (let i = 0; i < vacationSpots.length; i++){
+  console.log(`I would love to visit ${vacationSpots[i]}`)
+}
+//prints I would love to visit Bali - I would love to visit Paris - I would love to visit Tulum
