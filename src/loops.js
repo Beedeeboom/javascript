@@ -28,6 +28,7 @@ for (let i = 0; i < vacationSpots.length; i++){
 //prints I would love to visit Bali - I would love to visit Paris - I would love to visit Tulum
 
 //Nested loops
+//For loops is ideal when we know how many times the loop should run
 //the below contains 3 arrays
 //the duplicates from array 1 and 2 are pushed into array 3
 let bobsFollowers = ['Joe', 'Marta', 'Sam', 'Erin'];
@@ -41,3 +42,31 @@ for (let i = 0; i < bobsFollowers.length; i++) {
     }
   }
 };
+
+//While Loops
+//Are better to use when we aren't sure how many times a loop should run.
+//When we want to execute a loop a undetermined number of times.
+const cards = ['diamond', 'spade', 'heart', 'club'];
+
+// Write your code below
+let currentCard;
+
+while (currentCard != 'spade') {
+  currentCard = cards[Math.floor(Math.random() * 4)];
+  console.log(currentCard)
+}
+
+//Do...While Statement
+//Says to do a task once and then keep doing it until a specified condition is no longer met.
+//The while and do...while loop are different.
+//Unlike the while loop, the do...while will run at least once whether or not the condition evaluates to true.
+let cupsOfSugarNeeded = 4
+let cupsAdded = 0
+let i = 0
+
+do {
+  cupsAdded = cupsAdded + i;
+  i++;
+} while (i < cupsOfSugarNeeded);
+
+console.log(cupsAdded) //prints 6
