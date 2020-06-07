@@ -70,3 +70,17 @@ do {
 } while (i < cupsOfSugarNeeded);
 
 console.log(cupsAdded) //prints 6
+
+//The break keyword lets us break out of a loop when the condition has been met
+const rapperArray = ["Lil' Kim", "Jay-Z", "Notorious B.I.G.", "Tupac"];
+
+for (let i = 0; i < rapperArray.length; i++) {
+  if (rapperArray[i] === rapperArray[3]) {
+    break
+  }
+  console.log(rapperArray[i])
+}
+
+console.log("And if you don't know, now you know.")
+//prints all elements of the array up to 'Notorious B.I.G then breaks the loop
+//then prints "And if you don't know, now you know"
