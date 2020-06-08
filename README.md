@@ -202,3 +202,31 @@ The .reduce() method returns a single value after iterating through the elements
 ```
 
 In the code above the first iteration takes the number 1 as the accumulator and the number 2 as the current value and returns the sum of 3. The loop continues to the second iteration, the accumulator is now 3 and the current value is 4, the returned valued is the sum of 3 + 4. The loop continues until it reaches the last elements and returns the value 17.
+
+### .some()
+
+Returns true if the element of an array passes the function condition, else prints false
+
+```
+    const words = ['unique', 'uncanny', 'pique', 'oxymoron', 'guise'];
+
+    console.log(words.some((word) => {
+    return word.length < 3;
+    })); //prints false because no element in the array is under 3 characters
+
+```
+
+### .every()
+
+The .every() method tests if all elements in an array pass the function test, returning true or false.
+
+```
+
+    const words = ['unique', 'uncanny', 'pique', 'oxymoron', 'guise']
+    const interestingWords = words.filter(word => {
+    return word.length > 5
+    })
+    console.log(interestingWords.every((word) => { return word.length > 5 } ))
+    //[prints true]
+
+```

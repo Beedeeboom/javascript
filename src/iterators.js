@@ -103,3 +103,25 @@ const newSum = newNumbers.reduce((accumulator, currentValue) => {
 }, 10) //here we can also add an argument that adds 10 to the total iteration (optional)
 
 console.log(newSum)
+
+//.some() 
+//returns true if one array element passes the function test, else returns false
+const words = ['unique', 'uncanny', 'pique', 'oxymoron', 'guise'];
+
+console.log(words.some((word) => {
+  return word.length < 3;
+})); //returns false, because no element in the array is less than 3 characters
+
+//.every() 
+//returns true is all elements of an array pass the function test, else returns false
+const words = ['unique', 'uncanny', 'pique', 'oxymoron', 'guise'];
+
+console.log(words.some((word) => {
+  return word.length < 6;
+}));
+
+const interestingWords = words.filter(word => {
+  return word.length > 5
+})
+
+console.log(interestingWords.every((word) => { return word.length > 5 } )); //returns true
