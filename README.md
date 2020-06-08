@@ -240,6 +240,56 @@ We can include methods in our object literals by creating ordinary, comma-separa
 
 ```
 
+### Nested Objects
+
+Objects can be nested within another object. An Ojbect can have an object as a property which in turn could have a property that's an array of more objects.
+
+``` 
+
+    let spaceship = {
+    passengers: null,
+    telescope: {
+        yearBuilt: 2018,
+        model: "91031-XLT",
+        focalLength: 2032 
+    },
+    crew: {
+        captain: { 
+        name: 'Sandra', 
+        degree: 'Computer Engineering', 
+        encourageTeam() { console.log('We got this!') },
+        'favorite foods': ['cookies', 'cakes', 'candy', 'spinach'] }
+    },
+    engine: {
+        model: "Nimbus2000"
+    },
+    nanoelectronics: {
+        computer: {
+        terabytes: 100,
+        monitors: "HD"
+        },
+        'back-up': {
+        battery: "Lithium",
+        terabytes: 50
+        }
+    }
+    }; 
+
+    let capFave = spaceship.crew.captain['favorite foods'][0]
+    spaceship.passengers = [{name: 'Space Dog'}]
+    let firstPassenger = spaceship.passengers[0]
+
+
+```
+
+We can chain operators to access nested properties
+
+```
+
+    paceship.nanoelectronics['back-up'].battery; // Returns 'Lithium'
+
+```
+
 ## Iterators
 
 ### .forEach()
