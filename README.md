@@ -290,6 +290,49 @@ We can chain operators to access nested properties
 
 ```
 
+### Pass By Reference
+
+Functions which change object properties mutate the object permanently.
+
+```
+
+    let spaceship = {
+    'Fuel Type' : 'Turbo Fuel',
+    homePlanet : 'Earth'
+    };
+
+    //function greenEnergy has an object as a parameter. Object has a property and value
+
+    let greenEnergy = objectParam => {
+    objectParam['Fuel Type'] = 'avocado oil';
+    }
+
+```
+
+```
+
+    let spaceship = {
+    'Fuel Type' : 'Turbo Fuel',
+    homePlanet : 'Earth'
+    };
+
+    let greenEnergy = obj => {
+    obj['Fuel Type'] = 'avocado oil';
+    }
+
+    let remotelyDisable = obj => {
+    obj.disabled = true;
+    }
+
+    greenEnergy(spaceship); //adds greenEnergy to spaceship properties
+
+    remotelyDisable(spaceship); //add reotelyDisable to spaceship properties
+
+    console.log(spaceship)
+
+```
+
+
 ## Iterators
 
 ### .forEach()
