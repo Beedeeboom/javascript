@@ -74,3 +74,19 @@ const smallNumbers = randomNumbers.filter(number => {
 })
 
 console.log(smallNumbers)
+
+//.findIndex()
+const animals = ['hippo', 'tiger', 'lion', 'seal', 'cheetah', 'monkey', 'salamander', 'elephant'];
+
+const foundAnimal = animals.findIndex(animals => {
+  return animals === 'elephant'
+})
+
+console.log(foundAnimal) //prints the index of 'elephant =>
+console.log(animals[7]) //prints the animal found at index 7 => 'elephant'
+
+const startsWithS = animals.findIndex(animals => {
+  return animals[0] === 's'
+})
+
+console.log(startsWithS) //prints the index of the first animal that starts with 's' => 'seal'

@@ -162,3 +162,25 @@ Like .map(), .filter() returns a new array. However .filter() returns an array o
     //returns an array of strings shorter than six characters
 
 ```
+
+### .findIndex()
+
+We can use the .findIndex() method to find the location of an element in an array. Calling the .findIndex() method will return the index of the first element that evaluates to true in the callback function.
+
+```
+
+    const jumbledNums = [123, 25, 78, 5, 9]; 
+
+    const lessThanTen = jumbledNums.findIndex(num => {
+    return num < 10;
+    });
+
+    console.log(lessThanTen)
+    //returns the index of the first element in the array that is less than 10 => 3
+
+    console.log(jumbledNums[3])
+    //returns the value of the element at index 3 => 5
+
+
+```
+
