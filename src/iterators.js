@@ -90,3 +90,16 @@ const startsWithS = animals.findIndex(animals => {
 })
 
 console.log(startsWithS) //prints the index of the first animal that starts with 's' => 'seal'
+
+//.reduce()
+//returns a single value after iterating through the elements of an array
+const newNumbers = [1, 3, 5, 7];
+
+const newSum = newNumbers.reduce((accumulator, currentValue) => {
+  console.log(accumulator);
+  console.log(currentValue);
+  return accumulator + currentValue
+
+}, 10) //here we can also add an argument that adds 10 to the total iteration (optional)
+
+console.log(newSum)

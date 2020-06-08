@@ -184,3 +184,21 @@ We can use the .findIndex() method to find the location of an element in an arra
 
 ```
 
+### .reduce()
+
+The .reduce() method returns a single value after iterating through the elements of an array, thereby reducing the array.
+
+```
+
+    const numbers = [1, 2, 4, 10];
+
+    const summedNums = numbers.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue
+    })
+
+    console.log(summedNums) // Output: 17
+
+
+```
+
+In the code above the first iteration takes the number 1 as the accumulator and the number 2 as the current value and returns the sum of 3. The loop continues to the second iteration, the accumulator is now 3 and the current value is 4, the returned valued is the sum of 3 + 4. The loop continues until it reaches the last elements and returns the value 17.
