@@ -175,6 +175,28 @@ With bracket notation you can also use a variable inside the brackets to select 
 
 If we tried to write our returnAnyProp() function with dot notation (objectName.propName) the computer would look for a key of 'propName' on our object and not the value of the propName parameter.
 
+### Object Property Assignment
+
+Once an object is defined, we can change, add or delete key values.
+
+```
+
+    let spaceship = {
+    'Fuel Type' : 'Turbo Fuel',
+    homePlanet : 'Earth',
+    color: 'silver',
+    'Secret Mission' : 'Discover life outside of Earth.'
+    };
+
+    spaceship.color = 'glorious gold'
+    spaceship.numEngines = 5
+    delete spaceship['Secret Mission']
+    console.log(spaceship)
+
+```
+
+
+
 ## Iterators
 
 ### .forEach()
