@@ -83,7 +83,7 @@ Objects in Javascript are similar to hashes in Ruby
     console.log(object)
 ```
 
-We can access data stored within variable objects like so:
+We can access data stored within variable objects using the dot notation like so:
 
 ```
     let student = {
@@ -101,6 +101,79 @@ We can access data stored within variable objects like so:
     //console will print => Mango Hill
 
 ```
+
+```
+
+    let spaceship = {
+    homePlanet: 'Earth',
+    color: 'silver'
+    };
+    spaceship.homePlanet; // Returns 'Earth',
+    spaceship.color; // Returns 'silver',
+
+
+```
+
+Objects can be assigned to variables and can be filled with an object with unordered data. The data is organised into key-value pairs. The key is like a variable name that points to a value.
+
+```
+
+    // An object literal with two key-value pairs
+    let spaceship = {
+    'Fuel Type': 'diesel',
+    color: 'silver'
+    };
+
+```
+
+We can assign objects to variables like so:
+
+```
+
+    let spaceship = {
+    homePlanet: 'Earth',
+    color: 'silver'
+    };
+    spaceship.homePlanet; // Returns 'Earth',
+    spaceship.color; // Returns 'silver',
+
+```
+
+We can also access a key's value using the bracket notation [ ] similar to accessing an array element by its index.
+
+```
+
+    ['A', 'B', 'C'][0]; // Returns 'A'
+
+```
+
+We must use bracket notation when accessing keys that have numbers, spaces, or special characters in them. Without bracket notation in these situations, our code would throw an error.
+
+```
+
+    let spaceship = {
+    'Fuel Type': 'Turbo Fuel',
+    'Active Duty': true,
+    homePlanet: 'Earth',
+    numCrew: 5
+    };
+    spaceship['Active Duty'];   // Returns true
+    spaceship['Fuel Type'];   // Returns  'Turbo Fuel'
+    spaceship['numCrew'];   // Returns 5
+    spaceship['!!!!!!!!!!!!!!!'];   // Returns undefined
+
+```
+
+With bracket notation you can also use a variable inside the brackets to select the keys of an object. This can be especially helpful when working with functions:
+
+```
+    let returnAnyProp = (objectName, propName) => objectName[propName];
+
+    returnAnyProp(spaceship, 'homePlanet'); // Returns 'Earth'
+
+```
+
+If we tried to write our returnAnyProp() function with dot notation (objectName.propName) the computer would look for a key of 'propName' on our object and not the value of the propName parameter.
 
 ## Iterators
 
@@ -230,3 +303,34 @@ The .every() method tests if all elements in an array pass the function test, re
     //[prints true]
 
 ```
+
+### Choosing the right iterator
+
+Javascript has many iteration methods available on [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every). It is important to learn to choose the correct method for different scenarios.
+
+```
+const cities = ['Orlando', 'Dubai', 'Edinburgh', 'Chennai', 'Accra', 'Denver', 'Eskisehir', 'Medellin', 'Yokohama'];
+
+const nums = [1, 50, 75, 200, 350, 525, 1000];
+
+//  Choose a method that will return undefined
+cities.forEach(city => console.log('Have you visited ' + city + '?'));
+
+// Choose a method that will return a new array
+const longCities = cities.filter(city => city.length > 7);
+
+// Choose a method that will return a single value
+const word = cities.reduce((acc, currVal) => {
+  return acc + currVal[0]
+}, "C");
+
+console.log(word)
+
+// Choose a method that will return a new array
+const smallerNums = nums.map(num => num - 5);
+
+// Choose a method that will return a boolean value
+nums.some(num => num < 0);
+
+```
+
