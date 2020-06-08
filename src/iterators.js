@@ -20,3 +20,11 @@ function printGrocery(element){
 }
 
 groceries.forEach(printGrocery)
+
+//Iterate over a fruit array
+const fruits = ['mango', 'papaya', 'pineapple', 'apple'];
+
+// Iterate over fruits below
+fruits.forEach(function (fruitItem) {
+  console.log(`I want to eat a ${fruitItem}`)
+})
