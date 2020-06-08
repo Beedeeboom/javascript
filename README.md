@@ -102,3 +102,32 @@ We can access data stored within variable objects like so:
 
 ```
 
+## Iterators
+
+####.map()
+When .map() is called on an array, it takes an argument of a callback function and returns a new array
+
+```
+    const numbers = [1, 2, 3, 4, 5]; 
+
+    const bigNumbers = numbers.map(number => {
+    return number * 10;
+    });
+
+    console.log(numbers); // Output: [1, 2, 3, 4, 5]
+    console.log(bigNumbers); // Output: [10, 20, 30, 40, 50]
+
+```
+
+If we want to retrieve a certain string element we can retrieve it with return word[0], this will return the string element at index 0.
+
+```
+    const animals = ['Hen', 'elephant', 'llama', 'leopard', 'ostrich', 'Whale', 'octopus', 'rabbit', 'lion', 'dog'];
+
+    const secretMessage = animals.map(animals => {
+    return animals[0]
+    })
+
+    //prints the first letter of each word => HelloWorld
+
+```

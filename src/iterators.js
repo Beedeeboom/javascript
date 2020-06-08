@@ -28,3 +28,23 @@ const fruits = ['mango', 'papaya', 'pineapple', 'apple'];
 fruits.forEach(function (fruitItem) {
   console.log(`I want to eat a ${fruitItem}`)
 })
+
+//.map() method
+//when this method is call on an array, it takes an argument of a callback function and returns a new array.
+//.map() works in a similar way to .forEach() - The main difference is that .map() returns a new array
+const numbers = [1, 2, 3, 4, 5]; 
+
+const bigNumbers = numbers.map(number => {
+  return number * 10;
+});
+
+console.log(numbers); // Output: [1, 2, 3, 4, 5]
+console.log(bigNumbers); // Output: [10, 20, 30, 40, 50]
+
+//returning a new array - Big Numbers to Small Numbers
+const bigNumbers = [100, 200, 300, 400, 500];
+
+// Create the smallNumbers array below
+const smallNumbers = bigNumbers.map(num => num/100);
+
+console.log(smallNumbers)
