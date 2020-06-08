@@ -48,3 +48,29 @@ const bigNumbers = [100, 200, 300, 400, 500];
 const smallNumbers = bigNumbers.map(num => num/100);
 
 console.log(smallNumbers)
+
+//.filter() method
+//The below code returns a new array of strings that are below 6 characters
+const words = ['chair', 'music', 'pillow', 'brick', 'pen', 'door']; 
+
+const shortWords = words.filter(word => {
+  return word.length < 6;
+});
+
+//The below code returns an array of strings that are over 7 characters
+const favoriteWords = ['nostalgia', 'hyperbole', 'fervent', 'esoteric', 'serene'];
+
+const longFavoriteWords = favoriteWords.filter(words => {
+  return words.length > 7
+})
+
+console.log(longFavoriteWords)
+
+//The below code returns an array of numbers that are under 250
+const randomNumbers = [375, 200, 3.14, 7, 13, 852];
+
+const smallNumbers = randomNumbers.filter(number => {
+  return number < 250
+})
+
+console.log(smallNumbers)

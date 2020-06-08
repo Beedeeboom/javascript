@@ -104,7 +104,23 @@ We can access data stored within variable objects like so:
 
 ## Iterators
 
-####.map()
+### .forEach()
+
+The .forEach() method will execute the same code for each element of an array.
+The below code calls the .forEach method on the groceries array. Here .forEach takes an argument of callback function (callback = passed as an argument into another function) and .forEach loops through the array and executed the callback function for each element.
+
+```
+    const groceries = ['bananas', 'sugar', 'cereales', 'bread']
+
+    groceries.forEach(function(groceryItem) {
+        console.log('-' + groceryItem)
+    
+    //prints - bananas, - sugar, -cereales, - bread
+})
+
+```
+
+### .map()
 When .map() is called on an array, it takes an argument of a callback function and returns a new array
 
 ```
@@ -129,5 +145,20 @@ If we want to retrieve a certain string element we can retrieve it with return w
     })
 
     //prints the first letter of each word => HelloWorld
+
+```
+
+### .filter()
+
+Like .map(), .filter() returns a new array. However .filter() returns an array of elements after filtering out certain elements from the original array.
+
+```
+    const words = ['chair', 'music', 'pillow', 'brick', 'pen', 'door']; 
+
+    const shortWords = words.filter(word => {
+    return word.length < 6;
+    });
+
+    //returns an array of strings shorter than six characters
 
 ```
