@@ -194,8 +194,51 @@ Once an object is defined, we can change, add or delete key values.
     console.log(spaceship)
 
 ```
+### Methods
 
+When the data stored in an object is a function it is called a method. A property is what an object has, while a method is what an object does.
 
+Take for example - console.log() => console is the object, log is the method.
+
+We can include methods in our object literals by creating ordinary, comma-separated key-value pairs. The key serves as our method’s name, while the value is an anonymous function expression.
+
+```
+
+    const alienShip = {
+    invade: function () { 
+        console.log('Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.')
+    }
+    }
+
+    //With the new method syntas introduced in ES6 we can omit the colon and the function keyword.
+
+    const alienShip = {
+        invade () { 
+            console.log('Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.')
+        }
+    };
+
+    alienShip.invade(); // Prints 'Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.'
+
+```
+
+```
+
+    let retreatMessage = 'We no longer wish to conquer your planet. It is full of dogs, which we do not care for.';
+
+    const alienShip = {
+    retreat() {
+        console.log(retreatMessage)
+    },
+    takeOff() {
+        console.log('Spim... Borp... Glix... Blastoff!')
+    }
+    }
+
+    alienShip.retreat()
+    alienShip.takeOff()
+
+```
 
 ## Iterators
 
