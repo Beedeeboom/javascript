@@ -33,6 +33,13 @@ function splitAString(string, character) {
     return string.split(character)
 }
 
+function doesTheStringInclude(string, character) {
+    //given 2 args, is the character in the string?
+    // eg "haystack", "a" => true
+    // eg "haystack", "z" => false
+    return string.includes(character)
+}
+
 function doesItEndWith(string, character) {
     //given 2 args, does the string end with the given character?
     // eg "foo", "b" => false

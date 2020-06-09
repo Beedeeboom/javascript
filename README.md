@@ -540,3 +540,197 @@ nums.some(num => num < 0);
 
 ```
 
+### String Methods
+
+#### .trim()
+
+Removes white space from the start of a string.
+
+```
+
+    function removeWhiteSpace(string) {
+        // eg "    hello world    " => "hello world"
+        return string.trim()
+    }
+
+```
+
+#### .concat()
+
+Joins strings together.
+
+```
+
+    function joinTwoStringsTogetherWithSpace(string1, string2) {
+    // eg "hello", "world" => "hello world"
+    return string1.concat(' ',string2)
+    }
+
+```
+
+#### .split()
+
+Splits a string at each instance of a character passed.
+
+```
+
+    function splitAString(string, character) {
+        // given 2 args, split a string at each instance of the character 
+        // eg "hello world", " " => ["hello", "world"]
+        // eg "tee, dum, did, nee", "," => ["tee", "dum", "did", "nee"]
+        return string.split(character)
+    }
+
+```
+
+#### .includes()
+
+Returns a boolean if a string contains a given character.
+
+```
+
+    function doesTheStringInclude(string, character) {
+    //given 2 args, is the character in the string?
+    // eg "haystack", "a" => true
+    // eg "haystack", "z" => false
+    return string.includes(character)
+    }
+
+```
+
+#### .endsWith()
+
+Returns a boolean if a string ends with a given character.
+
+```
+
+    function doesItEndWith(string, character) {
+        //given 2 args, does the string end with the given character?
+        // eg "foo", "b" => false
+        // eg "foo", "o" => true
+        return string.endsWith(character)
+    }
+
+```
+
+#### .indexOf()
+
+Returns the index of a given character.
+
+```
+
+    function whatIndexIsItAt(string, character) {
+        // given 2 args, what is the index of the character
+        // eg "hello world", "o" => 4
+        // eg "foobar", "b" => 3
+        return string.indexOf(character)
+    }
+
+```
+
+#### .replace()
+
+Changes all instances of a strings given character.
+
+```
+
+    function replaceCharacterInString(string, character1, character2) {
+        // given 3 args, change all instances of character1 to character2 in string
+        // eg "hello world", "o", "x" => "hellx wxrld"
+        return string.replace(character1, character2)
+    }
+
+```
+
+#### .repeat()
+
+Repeats a string x amount of times.
+
+```
+
+    function repeatSomeAmountOfTimes(string, x) {
+        // given 2 args, repeat the string x amount of times
+        // eg "foo", 3 => "foofoofoo"
+        return string.repeat(x)
+    }
+
+```
+
+#### .substr()
+
+Returns a string after the point of the given index.
+
+```
+
+    function extractPartOfAString(string, index) {
+        // given 2 args, give back the string after the point of the index
+        // eg "hello world", 4 => "o world"
+        return string.substr(index)
+    }
+
+```
+
+### Combining String Methods
+
+#### First Letter Must Be Capitalized
+
+
+```
+
+    function firstLetterMustBeCapital(string) {
+        // eg "hello world" => "Hello World"
+        // eg "fOoBaR" => "FOoBaR"
+        string1 = string.charAt(0).toUpperCase()
+        string2 = string.substr(1)
+        return string1.concat(string2)
+    }
+
+```
+
+#### Only First Letter Capitalized
+
+
+```
+
+    function onlyFirstLetterCapitalized(string) {
+        // eg "HELLO WORLD" => "Hello world"
+        string1 = string.toLowerCase().substr(1)
+        string2 = string.charAt(0).toUpperCase()
+        return string2.concat(string1)
+    }
+
+```
+
+#### Strip The Start and Capitalize
+
+
+```
+
+    function stripTheStartAndCapitalize(string) {
+        // given 2 args, remove the whitespace from the only the start of the
+        // string and capitalize the rest of the string
+        // eg "   hello world" => "HELLO WORLD"
+        return string.trimStart().toUpperCase()
+    }
+
+```
+
+#### Capitalize A Given Character
+
+
+```
+
+    function capitalizeTheGivenCharacter(string, character) {
+        // given 2 args, find the character in the string and capitalize it
+        // eg "hello world", "r" => "hello woRld"
+        return string.replace(character, character.toUpperCase())
+    }
+
+```
+
+
+
+
+
+
+
