@@ -373,9 +373,12 @@ A for..in loop lets us iterate through object properties and their values ([MDN 
     }
 
     //prints => Lily: Computer Engineering, Dan: Aerospace Engineering, Clementine: Physics, Shauna: Conservation Science
-    
+
 
 ```
+
+## Advanced Objects
+
 
 
 ## Iterators
