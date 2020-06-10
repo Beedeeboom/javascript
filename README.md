@@ -379,7 +379,60 @@ A for..in loop lets us iterate through object properties and their values ([MDN 
 
 ## Advanced Objects
 
+### Keyword => this
 
+The keyword "this" lets us access object properties (keys-value pairs) within other methods
+
+```
+
+    const robot = {
+    model: '1E78V2',
+    energyLevel: 100,
+
+    provideInfo() {
+        return `I am ${this.model} and my current energy level is ${this.energyLevel}`
+    }
+    };
+
+    console.log(robot.provideInfo())
+
+
+```
+
+```
+
+    const goat = {
+    dietType: 'herbivore',
+    makeSound() {
+        console.log('baaa');
+    },
+    diet() {
+        console.log(this.dietType);
+    }
+    };
+
+    goat.diet(); 
+    // Output: herbivore
+
+
+```
+
+### Object Privacy
+
+Sometimes we don't want our object properties to change. To define an object property that shouldn't be changed we append it with an underscore. Although this doesn't prevent the property from being changed, it is way for developers to let other developers know not to change the value of that property.
+
+```
+
+    const robot = {
+    _energyLevel: 100,
+    recharge(){
+        this._energyLevel += 30;
+        console.log(`Recharged! Energy is currently at ${this._energyLevel}%.`)
+    }
+    };
+
+
+```
 
 ## Iterators
 

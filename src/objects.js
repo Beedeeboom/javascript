@@ -126,3 +126,15 @@ for(let crewMemberDegree in spaceship.crew) {
 }
 
 //prints => Lily: Computer Engineering, Dan: Aerospace Engineering, Clementine: Physics, Shauna: Conservation Science
+
+//Keyword => this
+const robot = {
+    model: '1E78V2',
+    energyLevel: 100,
+  
+    provideInfo() {
+      return `I am ${this.model} and my current energy level is ${this.energyLevel}`
+    }
+  };
+  
+  console.log(robot.provideInfo())
