@@ -434,6 +434,64 @@ Sometimes we don't want our object properties to change. To define an object pro
 
 ```
 
+### Getters
+
+Getters are methods that get and return the internal properties of an object. Using getter methods we can:
+
+    * Perfor an action on the data when getting a property
+    * Return different values using conditionals
+    * Access the properties of the calling object using "this"
+    * Make our code more readable to other developers.
+
+
+```
+
+    const person = {
+    _firstName: 'John',
+    _lastName: 'Doe',
+    get fullName() {
+        if (this._firstName && this._lastName){
+        return `${this._firstName} ${this._lastName}`;
+        } else {
+        return 'Missing a first name or a last name.';
+        }
+    }
+    }
+
+    // To call the getter method: 
+    person.fullName; // 'John Doe'
+
+
+```
+
+### Setters
+
+Setter methods can be used to reassing the values of existing properties within an object. In the below code snippet we are using the setter method to:
+
+    * Perform a check for what value is being assing to this._age
+    * Reassign only values that are numbers to this._age
+    * Perform different outputs depending on what values are used to reassign this._age
+
+
+```
+
+    const person = {
+    _age: 37,
+    set age(newAge){
+        if (typeof newAge === 'number'){
+        this._age = newAge;
+        } else {
+        console.log('You must assign a number to age');
+        }
+    }
+    };
+
+    person.age = 40;
+    console.log(person._age); // Logs: 40
+    person.age = '40'; // Logs: You must assign a number to age
+
+```
+
 ## Iterators
 
 ### .forEach()
