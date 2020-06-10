@@ -49,3 +49,19 @@ function firstLetterMustBeCapital(string) {
 }
 
 console.log(firstLetterMustBeCapital('foo bar'))
+
+function commonCharacters(string1, string2) {
+	result = []
+	// string1 = string1.toLowerCase().split() 
+	// string2 = string2.toLowerCase().split()
+
+	for(let i = 0; i < string1.length; i++) {
+		for (let j = 0; j < string2.length; j++) {
+			if (string1[i] === string2[j]) {
+				return result.push(i)
+			}
+		}
+	}
+}
+
+console.log(commonCharacters("abcde", "cdff"))
