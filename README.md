@@ -563,6 +563,79 @@ We can also add methods within our object that are not declared as parameters.
 
 ```
 
+### Destructure Assignment
+
+We can use the destructuring technique to create new variables from an object's key by wrapping it in curly braces { }:
+
+```
+
+    const robot = {
+    model: '1E78V2',
+    energyLevel: 100,
+    functionality: {
+        beep() {
+        console.log('Beep Boop');
+        },
+        fireLaser() {
+        console.log('Pew Pew');
+        },
+    }
+    };
+
+    const { functionality } = robot
+    functionality.beep()
+
+
+```
+
+### Object Methods
+
+We can create our own instances of objects but we can also make sure of built-in methods for objects, see - [MDN Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+
+
+```
+
+    const robot = {
+        model: 'SAL-1000',
+    mobile: true,
+    sentient: false,
+    armor: 'Steel-plated',
+    energyLevel: 75
+    };
+
+    //returns the object keys in an array
+    const robotKeys = Object.keys(robot);
+
+    console.log(robotKeys);
+    //prints [ 'model', 'mobile', 'sentient', 'armor', 'energyLevel' ]
+
+    //returns the object keys and values in an array
+    const robotEntries = Object.entries(robot);
+
+    console.log(robotEntries);
+    //prints
+    //[ [ 'model', 'SAL-1000' ],
+    //[ 'mobile', true ],
+    //[ 'sentient', false ],
+    //[ 'armor', 'Steel-plated' ],
+    //[ 'energyLevel', 75 ] ]
+
+    //creates a new variable with the robot object and adds a new set of key/values
+    const newRobot = Object.assign({laserBlaster: true, voiceRecognition: true}, robot)
+
+    console.log(newRobot);
+    //prints 
+    //{ laserBlaster: true,
+    // voiceRecognition: true,
+    // model: 'SAL-1000',
+    //mobile: true,
+    //sentient: false,
+    // armor: 'Steel-plated',
+    // energyLevel: 75 }
+
+
+```
+
 ## Iterators
 
 ### .forEach()
