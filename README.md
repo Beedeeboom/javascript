@@ -983,9 +983,238 @@ Returns a string after the point of the given index.
 
 ```
 
+## Classes
+
+Classes are a tool that developers use to quickly produce similar objects.
+
+Classes include constructor methods. Javascript calls the constructor() method every time it creates a new instance of a class.
+
+```
+
+    class Surgeon {
+    constructor(name, department) {
+        this.name = name;
+        this.department = department;
+    }
+    }
 
 
+```
+
+to create a new instance of a class we need to use the "new" keyword and save the new instance as a variable.
+
+```
+    const surgeonCurry = new Surgeon('Curry', 'Cardiovascular')
+    const surgeonDurant= new Surgeon('Durant', 'Orthopedics')
+
+```
+
+### Class Methods
+
+We can add class methods and getters to bring our class to life. Class method and getter syntax is the same as it is for objects except you can't include commas between them.
+
+```
+
+    class Surgeon {
+    constructor(name, department) {
+        this._name = name;
+        this._department = department;
+        this._remainingVacationDays = 20;
+    }
+    
+    get name() {
+        return this._name;
+    }
+    
+    get department() {
+        return this._department;
+    }
+    
+    get remainingVacationDays() {
+        return this._remainingVacationDays;
+    }
+    
+    takeVacationDays(daysOff) {
+        this._remainingVacationDays -= daysOff;
+    }
+    }
+
+    const surgeonCurry = new Surgeon('Curry', 'Cardiovascular');
+    const surgeonDurant = new Surgeon('Durant', 'Orthopedics');
 
 
+```
+
+### Method Calls
+
+We can call the above class and manipulate the data:
+
+```
+
+    console.log(surgeonCurry.name)//prints 'Curry'
+    surgeonCurry.takeVacationDays(3)//substracts 3 from takeVacationDays
+    console.log(surgeonCurry.remainingVacationDays)//prints 17
 
 
+```
+
+### Class Inheritance
+
+With inheritance, you can create a parent class (also known as a superclass) with properties and methods that multiple child classes (also known as subclasses) share. The child classes inherit the properties and methods from their parent class.
+
+To create a new class(subclass) that inherites from another class(super class) we can do this by using the keywords "extend" and "super".
+
+In the example below we have a super class Animal and a subclass Cat. 
+
+    * The extends keyword makes the methods of the animal class available inside the cat class.
+    * The constructor, called when you create a new Cat object, accepts two arguments, name and usesLitter.
+    * The super keyword calls the constructor of the parent class. In this case, super(name) passes the name argument of the Cat class to the constructor of the Animal class. When the Animal constructor runs, it sets this._name = name; for new Cat instances.
+    * _usesLitter is a new property that is unique to the Cat class, so we set it in the Cat constructor.
+
+```
+    //Super Class
+
+    class Animal {
+    constructor(name) {
+        this._name = name;
+        this._behavior = 0;
+    }
+
+    get name() {
+        return this._name;
+    }
+
+    get behavior() {
+        return this._behavior;
+    }
+
+    incrementBehavior() {
+        this._behavior++;
+    }
+    }
+
+    //Subclass
+
+    class Cat extends Animal {
+    constructor(name, usesLitter) {
+    super(name);
+    this._usesLitter = usesLitter;
+    }
+    }
+
+    //below we create a new instance of the class Cat
+    const bryceCat = new Cat('Bryce', false); 
+    console.log(bryceCat._name); // output: Bryce
+
+    //Our bryceCat variable can access methods from the super class
+    bryceCat.incrementBehavior(); // Call .incrementBehavior() on Cat instance 
+    console.log(bryceCat.behavior); // Log value saved to behavior
+
+```
+
+We can add getter and setter methods to our subclass.
+
+```
+
+    //Super Class - Parent
+
+    class HospitalEmployee {
+    constructor(name) {
+        this._name = name;
+        this._remainingVacationDays = 20;
+    }
+    
+    get name() {
+        return this._name;
+    }
+    
+    get remainingVacationDays() {
+        return this._remainingVacationDays;
+    }
+    
+    takeVacationDays(daysOff) {
+        this._remainingVacationDays -= daysOff;
+    }
+    }
+
+    //Subclass - Child
+
+    class Nurse extends HospitalEmployee {
+    constructor(name, certifications) {
+        super(name);
+        this._certifications = certifications;
+    } 
+
+    get certifications() {
+        return this._certifications
+    }
+
+    addCertification(newCertification) {
+        this._certifications.push(newCertification)
+    }
+    }
+
+    const nurseOlynyk = new Nurse('Olynyk', ['Trauma','Pediatrics']);
+    nurseOlynyk.takeVacationDays(5);
+    console.log(nurseOlynyk.remainingVacationDays); // prints 15
+    nurseOlynyk.addCertification('Genetics')
+    console.log(nurseOlynyk.certifications) //prints [ 'Trauma', 'Pediatrics', 'Genetics' ]
+
+```
+
+### Static Methods - Class Inheritance
+
+Sometimes we may want a class to have methods that are not accessible to its child classes (e.g passwords). We can do this by creating a static method:
+
+```
+    //Super Class - Parent
+
+    class HospitalEmployee {
+    constructor(name) {
+        this._name = name;
+        this._remainingVacationDays = 20;
+    }
+
+    //static method that is only accessible in this class and not its children
+
+    static generatePassword() {
+        const randomNumber = Math.floor(Math.random() * 10000);
+        return randomNumber;
+    }
+    
+    get name() {
+        return this._name;
+    }
+    
+    get remainingVacationDays() {
+        return this._remainingVacationDays;
+    }
+    
+    takeVacationDays(daysOff) {
+        this._remainingVacationDays -= daysOff;
+    }
+    }
+
+    class Nurse extends HospitalEmployee {
+    constructor(name, certifications) {
+        super(name);
+        this._certifications = certifications;
+    } 
+    
+    get certifications() {
+        return this._certifications;
+    }
+    
+    addCertification(newCertification) {
+        this.certifications.push(newCertification);
+    }
+    }
+
+    const nurseOlynyk = new Nurse('Olynyk', ['Trauma','Pediatrics']);
+    nurseOlynyk.takeVacationDays(5);
+    console.log(nurseOlynyk.remainingVacationDays);
+    nurseOlynyk.addCertification('Genetics');
+    console.log(nurseOlynyk.certifications);
+
+
+```
