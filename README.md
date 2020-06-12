@@ -1277,5 +1277,141 @@ Example:
 
 ```
 
-### Node SetTimeout() Function
+## .then() 
 
+The .then() method is a higher-order function which takes two callback functions as arguments.
+
+    * The first handler, sometimes called onFulfilled, is a success handler, and it should contain the logic for the promise resolving.
+    * The second handler, sometimes called onRejected, is a failure handler, and it should contain the logic for the promise rejecting.
+
+We can invoke .then() with one, both, or neither handler! This allows for flexibility, but it can also make for tricky debugging. If the appropriate handler is not provided, instead of throwing an error, .then() will just return a promise with the same settled value as the promise it was called on. One important feature of .then() is that it always returns a promise. 
+
+The .then() method allows us to tell a promise that once it settles ...then execute this...
+
+Example:
+
+```
+
+    let prom = new Promise((resolve, reject) => {
+    let num = Math.random();
+    if (num < .5 ){
+        resolve('Yay!');
+    } else {
+        reject('Ohhh noooo!');
+    }
+    });
+
+    const handleSuccess = (resolvedValue) => {
+    console.log(resolvedValue);
+    };
+
+    const handleFailure = (rejectionReason) => {
+    console.log(rejectionReason);
+    };
+
+    prom.then(handleSuccess, handleFailure);
+
+
+```
+Instead of passing both handlers into one .then(), we can chain a second .then() with a failure handler to a first .then() with a success handler and both cases will be handled.
+
+```
+
+    prom
+    .then((resolvedValue) => {
+        console.log(resolvedValue);
+    })
+    .then(null, (rejectionReason) => {
+        console.log(rejectionReason);
+    });
+
+
+```
+
+Or to create more readable code we can use a different promise function => .catch()
+
+The .catch() function takes only one argument, onRejected. In the case of a rejected promise, this failure handler will be invoked with the reason for rejection. Using .catch() accomplishes the same thing as using a .then() with only a failure handler.
+
+```
+
+    prom
+    .then((resolvedValue) => {
+        console.log(resolvedValue);
+    })
+    .catch((rejectionReason) => {
+        console.log(rejectionReason);
+    });
+
+
+```
+
+### Chaining Multiple Promises
+
+A common pattern with asynchronous programming is multiple operations which depend on each other to execute or that must be executed in a certain order. Example we might make a request to the database and use the data returned to us to make a second request and so on.
+
+Example of a chaining method:
+
+```
+
+    firstPromiseFunction()
+    .then((firstResolveVal) => {
+    return secondPromiseFunction(firstResolveVal);
+    })
+    .then((secondResolveVal) => {
+    console.log(secondResolveVal);
+    }); 
+
+
+```
+
+### Common Mistakes
+
+Two common mistakes made when composing promises are:
+
+1. Nesting loops instead of chaining them
+
+```
+
+    returnsFirstPromise()
+    .then((firstResolveVal) => {
+    return returnsSecondValue(firstResolveVal)
+        .then((secondResolveVal) => {
+        console.log(secondResolveVal);
+        })
+    })
+
+```
+
+2. Forgetting to return a promise
+
+```
+
+    returnsFirstPromise()
+    .then((firstResolveVal) => {
+    returnsSecondValue(firstResolveVal)
+    })
+    .then((someVal) => {
+    console.log(someVal);
+    })
+
+
+```
+
+### Promise.all()
+
+To maximize efficiency we should use concurrency, multiple asynchronous operations happening together. With promises, we can do this with the function Promise.all().
+
+```
+
+    let myPromises = Promise.all([returnsPromOne(), returnsPromTwo(), returnsPromThree()]);
+
+    myPromises
+    .then((arrayOfValues) => {
+        console.log(arrayOfValues);
+    })
+    .catch((rejectionReason) => {
+        console.log(rejectionReason);
+    });
+
+
+```
