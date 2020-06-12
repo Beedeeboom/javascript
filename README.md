@@ -1218,3 +1218,64 @@ Sometimes we may want a class to have methods that are not accessible to its chi
 
 
 ```
+
+## Modules
+
+We can use modules to export a file into anther file. Modules are reusable pieces of code that can be exported from one program and imported for use in another program. 
+
+To do this we can use the module.exports and require() syntax or the ES6 import/export syntax.
+
+##### Example, file 1
+
+```
+
+    let Menu = {};
+    Menu.specialty = "Roasted Beet Burger with Mint Sauce";
+
+    module.exports = Menu;
+
+
+```
+
+##### Example, file 2
+
+```
+
+    const Menu = require('./menu.js');
+
+    function placeOrder() {
+    console.log('My order is: ' + Menu.specialty);
+    }
+
+    placeOrder();
+
+
+```
+
+##Promises
+
+A promiste constructor method takes a function parameter called the executor function which runs automatically when the constructor is called. 
+
+The executor function has two parameter functions => resolve() and reject().    
+    * resolved() is a function that takes one argument. If invoked it will change the promise's state from pending to fulfilled, and the promises resovled value will be set to the argument passed into resolve().
+
+    * reject()  is a function that takes a reason or error as an argument. If invoked, it will change the promise's state from pending to rejected.
+
+Example:
+
+```
+
+    const executorFunction = (resolve, reject) => {
+    if (someCondition) {
+        resolve('I resolved!');
+    } else {
+        reject('I rejected!'); 
+    }
+    }
+    const myFirstPromise = new Promise(executorFunction);
+
+
+```
+
+### Node SetTimeout() Function
+
